@@ -64,6 +64,7 @@
 		</footer>
 	</div>
 	
+	<script src="node_modules/imagesloaded/imagesloaded.pkgd.js"></script> <!-- http://imagesloaded.desandro.com/ -->
 	<script src="node_modules/packery/dist/packery.pkgd.js"></script> <!-- http://packery.metafizzy.co/ -->
 	<script>
 		(function() {
@@ -76,6 +77,11 @@
 			packery = new Packery($grid, {
 				itemSelector: '.products__item',
 			});
+
+			/* Reinit layout after images finished loading */
+			new imagesLoaded($grid, function() {
+				packery.layout();
+			})
 
 			/* Toggle method for 1x1 to 2x2 */
 			toggleSize = function (e) {
@@ -90,11 +96,6 @@
 
 			/* Add click event to parent */
 			$grid.addEventListener('click', toggleSize);
-
-
-		  	setTimeout(function () {
-				packery.layout();
-		  	},100);
 		})();
 	</script>
 </body>
