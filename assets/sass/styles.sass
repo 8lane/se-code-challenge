@@ -1,0 +1,102 @@
+@import "../../node_modules/normalize-css/normalize"
+
+/* Variables */
+$primary: gray
+$primary-dark: darken($primary, 10%)
+$secondary: #ec7613
+
+/* Helper Classes */
+body
+	font-size: 16px
+
+*
+	box-sizing: border-box
+
+img
+	max-width: 100%
+
+ul, li
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+.fl
+	float: left
+
+.fr
+	float: right
+
+/* Main Container */
+.container
+	&__inner
+		padding: 0 1rem
+
+/* Header Styles */
+.header
+	background: $primary
+	height: 9rem
+	padding-top: 2rem
+	padding-bottom: 2rem
+
+	/* Logo */
+	&__logo
+		background: $primary-dark
+		margin: 0 0 0.5rem
+
+		&--link
+			color: white
+			text-decoration: none
+
+	/* Search */
+	&__search
+		&--input
+			padding: 0.5rem
+			background: $primary-dark
+			border: 0
+
+	/* Nav */
+	&__nav
+		clear: both
+
+		&__item
+			display: inline-block
+			margin-right: 0.5rem
+
+			&--link
+				display: inline-block
+				padding: 5px 20px
+				background: $primary-dark
+				color: white
+
+/* Footer styles */
+.footer
+	background: $primary
+	height: 9rem
+
+/* Grid styles */
+$gutter-width: 1%
+$col-width: percentage(1/8)
+
+@mixin grid($width)
+	width: $width - $gutter-width * 2
+
+.products
+	margin-left: -$gutter-width
+	margin-right: -$gutter-width
+	padding-top: 1rem
+
+	&:after
+		display: block
+		clear: both
+		content: ''
+
+	&__item
+		float: left
+		+grid($col-width)
+		margin: 0 $gutter-width 1rem
+
+/* Task 2 Overrides */
+.task2
+	.products
+		.products__item--big
+			+grid($col-width * 2)

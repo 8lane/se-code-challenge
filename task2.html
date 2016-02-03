@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Secret Escapes Code Challenge</title>
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="container task2">
+		<header class="header container__inner">
+			<h1 class="header__logo fl">
+				<a href="#" class="header__logo--link">Secret Escapes Code Challenge</a>
+			</h1>
+
+			<div href="header__search" class="fr">
+				<input type="search" class="header__search--input" />
+			</div>
+
+			<nav class="header__nav">
+				<ul>
+					<li class="header__nav__item"><a href="#" class="header__nav__item--link">Link</a></li>
+					<li class="header__nav__item"><a href="#" class="header__nav__item--link">Link</a></li>
+					<li class="header__nav__item"><a href="#" class="header__nav__item--link">Link</a></li>
+					<li class="header__nav__item"><a href="#" class="header__nav__item--link">Link</a></li>
+					<li class="header__nav__item"><a href="#" class="header__nav__item--link">Link</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main class="container__inner">
+			<ul class="products">
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+				<li class="products__item"><a href="#" class="products__item--link"><img src="http://placehold.it/400x400"></a></li>
+			</ul>
+		</main>
+
+		<footer class="footer container__inner">
+		</footer>
+	</div>
+	
+	<script src="node_modules/packery/dist/packery.pkgd.js"></script> <!-- http://packery.metafizzy.co/ -->
+	<script>
+		(function() {
+			var $grid, $gridItem, packery, toggleSize;
+
+			/* Get the main grid element */
+			$grid = document.querySelector('.products');
+
+			/* Initialize packery.js */
+			packery = new Packery($grid, {
+				itemSelector: '.products__item',
+			});
+
+			/* Toggle method for 1x1 to 2x2 */
+			toggleSize = function (e) {
+			    $gridItem = e.target || e.toElement; /* cache event target */
+
+			    /* Through event delegation, check the target node is a grid child item */
+			    if($gridItem.matches('.grid-item, a, img')) {
+			       $gridItem.parentNode.parentNode.classList.toggle('products__item--big'); /* Toggle 2x size */
+			       packery.layout(); /* Fire packery layout method to restore layout */
+			    };
+			};
+
+			/* Add click event to parent */
+			$grid.addEventListener('click', toggleSize);
+
+
+		  	setTimeout(function () {
+				packery.layout();
+		  	},10);
+		})();
+	</script>
+</body>
+</html>
